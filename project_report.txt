@@ -1,0 +1,78 @@
+# LSTM Time Series Forecasting with MC Dropout
+
+## 1. Introduction
+
+This project focuses on building a time series forecasting system using Long Short-Term Memory (LSTM) neural networks. The goal is to predict future values of a synthetic time series dataset and estimate uncertainty using Monte Carlo (MC) Dropout. Traditional LSTM models provide point predictions, while MC Dropout enhances reliability by producing prediction intervals.
+
+## 2. Objectives
+
+The main objectives of this project are:
+• Generate synthetic time series data for experimentation
+• Preprocess data into sequential format suitable for LSTM
+• Train an LSTM model for forecasting
+• Implement MC Dropout for uncertainty estimation
+• Evaluate model performance using forecasting metrics
+• Visualize predictions with confidence intervals
+
+## 3. Dataset Generation
+
+The dataset is created synthetically using a function that simulates time series behavior. The generated dataset includes a column named "value" representing sequential numerical data points. This approach allows controlled experimentation without relying on real-world datasets.
+
+## 4. Data Preprocessing
+
+The preprocessing stage converts the raw time series values into input-output sequences using a sliding window approach. Each input sequence contains a fixed number of previous values (sequence length = 10), and the output is the next value in the series.
+
+The data is then reshaped to match LSTM input requirements and split into training (80%) and testing (20%) sets.
+
+## 5. Model Architecture
+
+### 5.1 LSTM Model
+
+The primary forecasting model is an LSTM neural network consisting of:
+• One LSTM layer with 50 neurons
+• One Dense output layer
+• Adam optimizer
+• Mean Squared Error loss function
+
+### 5.2 MC Dropout LSTM
+
+A modified LSTM model includes dropout layers active during inference. This allows multiple forward passes to estimate prediction uncertainty.
+
+## 6. Model Training
+
+Both models are trained on the prepared training dataset. The LSTM model learns temporal dependencies, while the MC Dropout model captures predictive uncertainty through stochastic sampling.
+
+## 7. Evaluation
+
+The models are evaluated using point forecast metrics such as error measurements. For MC Dropout, interval evaluation measures how well the prediction bounds capture actual values.
+
+## 8. Visualization
+
+Forecast results are visualized showing:
+• Actual test values
+• Mean predictions
+• Upper and lower confidence bounds
+
+This visualization helps understand model accuracy and uncertainty.
+
+## 9. Results
+
+The LSTM model provides reasonable predictions for time series values. The MC Dropout model enhances interpretability by offering confidence intervals, improving reliability for decision-making scenarios.
+
+## 10. Conclusion
+
+This project demonstrates the effectiveness of LSTM networks for time series forecasting and highlights the importance of uncertainty estimation using MC Dropout. Combining deep learning with probabilistic techniques improves prediction trustworthiness.
+
+## 11. Future Enhancements
+
+• Use real-world datasets
+• Increase model complexity
+• Apply hyperparameter tuning
+• Integrate additional uncertainty estimation methods
+• Deploy as a web application
+
+## 12. References
+
+• TensorFlow Keras Documentation
+• Time Series Forecasting using LSTM Research Papers
+• Monte Carlo Dropout for Bayesian Approximation
