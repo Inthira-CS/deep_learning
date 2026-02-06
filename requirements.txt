@@ -1,0 +1,55 @@
+# Project Requirements
+
+## Software Requirements
+
+• Python 3.8 or above
+• Visual Studio Code or similar IDE
+• Windows/Linux operating system
+
+## Libraries Required
+
+• numpy
+• pandas
+• tensorflow
+• scikit-learn
+• matplotlib
+
+## Hardware Requirements
+
+• Minimum 8 GB RAM
+• Intel i5 or equivalent processor
+• Adequate storage space
+
+## Functional Requirements
+
+• Synthetic data generation
+• Sequence creation for LSTM input
+• Training of LSTM model
+• Training of MC Dropout LSTM
+• SARIMA baseline forecasting
+• Performance evaluation
+• Visualization of results
+
+## Non-Functional Requirements
+
+• Efficient execution
+• Accurate forecasting
+• Maintainable code structure
+• Modular design
+
+## Installation Steps
+
+• Install Python
+• Install required libraries using pip
+• Setup project folders
+• Run main.py from root directory
+
+## Operational Requirements
+
+• System should support Python execution
+• Adequate memory for model training
+
+## Maintenance Requirements
+
+• Regular dependency updates
+• Code optimization when needed

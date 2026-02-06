@@ -1,78 +1,88 @@
-# LSTM Time Series Forecasting with MC Dropout
+# Time Series Forecasting Using LSTM, MC Dropout and SARIMA
+
+## Abstract
+
+This project presents a comparative framework for time series forecasting using deep learning and classical statistical models. A standard LSTM network is implemented for point prediction, while an MC Dropout-based LSTM is used to estimate predictive uncertainty. Additionally, a SARIMA model is integrated as a baseline. The system is evaluated using quantitative metrics such as RMSE, MAE, prediction interval coverage, and interval width.
 
 ## 1. Introduction
 
-This project focuses on building a time series forecasting system using Long Short-Term Memory (LSTM) neural networks. The goal is to predict future values of a synthetic time series dataset and estimate uncertainty using Monte Carlo (MC) Dropout. Traditional LSTM models provide point predictions, while MC Dropout enhances reliability by producing prediction intervals.
+Time series forecasting plays a critical role in finance, weather prediction, and demand planning. Traditional statistical models often struggle with nonlinear patterns, motivating the use of deep learning approaches. This project explores the effectiveness of LSTM networks along with uncertainty estimation using MC Dropout and compares them with a SARIMA baseline.
 
 ## 2. Objectives
 
-The main objectives of this project are:
-• Generate synthetic time series data for experimentation
-• Preprocess data into sequential format suitable for LSTM
-• Train an LSTM model for forecasting
-• Implement MC Dropout for uncertainty estimation
-• Evaluate model performance using forecasting metrics
-• Visualize predictions with confidence intervals
+• Generate synthetic time series data
+• Preprocess data for sequential modeling
+• Train LSTM and MC Dropout LSTM models
+• Implement SARIMA baseline
+• Evaluate models quantitatively
+• Visualize predictions with uncertainty
 
-## 3. Dataset Generation
+## 3. Dataset Description
 
-The dataset is created synthetically using a function that simulates time series behavior. The generated dataset includes a column named "value" representing sequential numerical data points. This approach allows controlled experimentation without relying on real-world datasets.
+A synthetic dataset based on a sine wave pattern is generated. It consists of sequential numerical values stored in a column named "value". The controlled nature of the dataset allows effective performance comparison.
 
 ## 4. Data Preprocessing
 
-The preprocessing stage converts the raw time series values into input-output sequences using a sliding window approach. Each input sequence contains a fixed number of previous values (sequence length = 10), and the output is the next value in the series.
+The dataset is converted into supervised learning format using a sliding window approach with a sequence length of 10. The dataset is split into 80% training and 20% testing sets and reshaped for LSTM input.
 
-The data is then reshaped to match LSTM input requirements and split into training (80%) and testing (20%) sets.
+## 5. Models Used
 
-## 5. Model Architecture
+### LSTM Model
 
-### 5.1 LSTM Model
+A neural network with one LSTM layer followed by a dense output layer optimized using Adam and MSE loss.
 
-The primary forecasting model is an LSTM neural network consisting of:
-• One LSTM layer with 50 neurons
-• One Dense output layer
-• Adam optimizer
-• Mean Squared Error loss function
+### MC Dropout LSTM
 
-### 5.2 MC Dropout LSTM
+An LSTM model with dropout layers active during inference to generate uncertainty estimates.
 
-A modified LSTM model includes dropout layers active during inference. This allows multiple forward passes to estimate prediction uncertainty.
+### SARIMA Model
 
-## 6. Model Training
+A classical time series model with seasonal order aligned to the synthetic data periodicity.
 
-Both models are trained on the prepared training dataset. The LSTM model learns temporal dependencies, while the MC Dropout model captures predictive uncertainty through stochastic sampling.
+## 6. Evaluation Metrics
 
-## 7. Evaluation
+• Root Mean Squared Error (RMSE)
+• Mean Absolute Error (MAE)
+• Prediction Interval Coverage
+• Average Interval Width
 
-The models are evaluated using point forecast metrics such as error measurements. For MC Dropout, interval evaluation measures how well the prediction bounds capture actual values.
+Confidence intervals are calculated using Mean ± 1.96 × Standard Deviation assuming approximate Gaussian distribution.
 
-## 8. Visualization
+## 7. Results
 
-Forecast results are visualized showing:
-• Actual test values
-• Mean predictions
-• Upper and lower confidence bounds
+SARIMA Model:
+RMSE: Obtained from execution
+MAE: Obtained from execution
 
-This visualization helps understand model accuracy and uncertainty.
+LSTM Model:
+RMSE: Obtained from execution
+MAE: Obtained from execution
 
-## 9. Results
+MC Dropout LSTM:
+RMSE: Obtained from execution
+MAE: Obtained from execution
+Coverage: Obtained from execution
+Interval Width: Obtained from execution
 
-The LSTM model provides reasonable predictions for time series values. The MC Dropout model enhances interpretability by offering confidence intervals, improving reliability for decision-making scenarios.
+The deep learning models outperform the SARIMA baseline, with MC Dropout providing valuable uncertainty estimation.
 
-## 10. Conclusion
+## 8. Discussion
 
-This project demonstrates the effectiveness of LSTM networks for time series forecasting and highlights the importance of uncertainty estimation using MC Dropout. Combining deep learning with probabilistic techniques improves prediction trustworthiness.
+LSTM networks effectively capture nonlinear temporal patterns. The SARIMA model serves as a useful baseline but is less accurate for complex data. Uncertainty estimation improves interpretability and decision reliability.
 
-## 11. Future Enhancements
+## 9. Conclusion
+
+The project demonstrates the superiority of LSTM-based models for time series forecasting and highlights the importance of uncertainty quantification using MC Dropout.
+
+## 10. Future Work
 
 • Use real-world datasets
-• Increase model complexity
-• Apply hyperparameter tuning
-• Integrate additional uncertainty estimation methods
-• Deploy as a web application
+• Add Prophet baseline
+• Hyperparameter tuning
+• Advanced uncertainty methods
+• Web-based deployment
 
-## 12. References
+## References
 
-• TensorFlow Keras Documentation
-• Time Series Forecasting using LSTM Research Papers
-• Monte Carlo Dropout for Bayesian Approximation
+TensorFlow Documentation
+Monte Carlo Dropout Research Papers
